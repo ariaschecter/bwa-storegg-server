@@ -43,7 +43,7 @@
 
                   <div class="form-group">
                     <label>Kategori</label>
-                    <select class="form-control select2" data-placeholder="Pilih Kategori" style="width: 100%;" name="coinName" required>
+                    <select class="form-control select2" data-placeholder="Pilih Kategori" style="width: 100%;" name="category" required>
                       <% category.forEach(cat => { %>
                         <option value="<%= cat._id %>"><%= cat.name %></option>
                       <% }) %>
