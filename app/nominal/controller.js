@@ -42,56 +42,56 @@ module.exports = {
     }
   },
 
-  // viewEdit: async (req, res) => {
-  //   try {
-  //     const { id } = req.params;
+  viewEdit: async (req, res) => {
+    try {
+      const { id } = req.params;
 
-  //     const category = await Category.findOne({ _id: id });
+      const nominal = await Nominal.findOne({ _id: id });
 
-  //     res.render('admin/category/edit', {
-  //       category,
-  //     });
-  //   } catch (err) {
-  //     req.flash('alertMessage', `${err.message}`);
-  //     req.flash('alertStatus', 'danger');
-  //     res.redirect('/nominal');
-  //   }
-  // },
+      res.render('admin/nominal/edit', {
+        nominal,
+      });
+    } catch (err) {
+      req.flash('alertMessage', `${err.message}`);
+      req.flash('alertStatus', 'danger');
+      res.redirect('/nominal');
+    }
+  },
 
-  // actionEdit: async (req, res) => {
-  //   try {
-  //     const { id } = req.params;
-  //     const { name } = req.body;
+  actionEdit: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { coinName, coinQuantity, price } = req.body;
 
-  //     await Category.findOneAndUpdate({ _id: id }, { name });
+      await Nominal.findOneAndUpdate({ _id: id }, { coinName, coinQuantity, price });
 
-  //     req.flash('alertMessage', 'Berhasil Ubah Kategori');
-  //     req.flash('alertStatus', 'success');
+      req.flash('alertMessage', 'Berhasil Ubah Nominal');
+      req.flash('alertStatus', 'success');
 
-  //     res.redirect('/nominal');
-  //   } catch (err) {
-  //     req.flash('alertMessage', `${err.message}`);
-  //     req.flash('alertStatus', 'danger');
-  //     res.redirect('/nominal');
-  //   }
-  // },
+      res.redirect('/nominal');
+    } catch (err) {
+      req.flash('alertMessage', `${err.message}`);
+      req.flash('alertStatus', 'danger');
+      res.redirect('/nominal');
+    }
+  },
 
-  // actionDelete: async (req, res) => {
-  //   try {
-  //     const { id } = req.params;
+  actionDelete: async (req, res) => {
+    try {
+      const { id } = req.params;
 
-  //     await Category.findOneAndRemove({
-  //       _id: id,
-  //     });
+      await Nominal.findOneAndRemove({
+        _id: id,
+      });
 
-  //     req.flash('alertMessage', 'Berhasil Hapus Kategori');
-  //     req.flash('alertStatus', 'success');
+      req.flash('alertMessage', 'Berhasil Hapus Nominal');
+      req.flash('alertStatus', 'success');
 
-  //     res.redirect('/nominal');
-  //   } catch (err) {
-  //     req.flash('alertMessage', `${err.message}`);
-  //     req.flash('alertStatus', 'danger');
-  //     res.redirect('/nominal');
-  //   }
-  // },
+      res.redirect('/nominal');
+    } catch (err) {
+      req.flash('alertMessage', `${err.message}`);
+      req.flash('alertStatus', 'danger');
+      res.redirect('/nominal');
+    }
+  },
 };
