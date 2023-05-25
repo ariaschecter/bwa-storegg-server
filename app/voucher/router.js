@@ -10,6 +10,6 @@ router.get('/create', viewCreate);
 router.post('/create', multer({ dest: os.tmpdir() }).single('image'), actionCreate);
 router.get('/edit/:id', viewEdit);
 router.put('/edit/:id', multer({ dest: os.tmpdir() }).single('image'), actionEdit);
-// router.delete('/delete/:id', actionDelete);
+router.delete('/delete/:id', actionDelete);
 
 module.exports = router;
