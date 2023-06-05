@@ -44,7 +44,7 @@ app.use('/nominal', nominalRouter);
 app.use('/voucher', voucherRouter);
 app.use('/bank', bankRouter);
 app.use('/payment', paymentRouter);
-app.use('/transaksi', transactionRouter);
+app.use('/transaction', transactionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
