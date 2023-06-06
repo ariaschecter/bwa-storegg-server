@@ -77,6 +77,18 @@ module.exports = {
             res.redirect('/voucher');
           }
         });
+      } else {
+        const voucher = new Voucher({
+          name,
+          category,
+          nominals,
+        });
+
+        await voucher.save();
+        req.flash('alertMessage', 'Berhasil Tambah Voucher');
+        req.flash('alertStatus', 'success');
+
+        res.redirect('/voucher');
       }
     } catch (err) {
       req.flash('alertMessage', `${err.message}`);
